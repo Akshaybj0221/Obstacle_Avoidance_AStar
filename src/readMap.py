@@ -82,7 +82,7 @@ class mapData:
 		lines = lines[0:278528] #reduce the size to toal grid elements
 		
 
-		#Made a grid of 512*544
+		# Made a grid of 512*544
 		row = []
 		grid = []
 		totalRow = 512
@@ -97,6 +97,17 @@ class mapData:
 			grid.append(row)			
 			row = []
 			i += 1
+
+		nodeList = []
+
+#		print(grid[2])
+		count = 0
+		for i in grid:
+			count+=1
+			for j in grid[count]:
+				nodeList.append((i,j))		
+		print(nodeList)
+
 
 		return grid
 
@@ -134,8 +145,9 @@ if __name__ == '__main__':
 		
 #		obj = mapData()
 		print(obj.res)
+		grid = obj.gridConversion()
 
-		obj.gridConversion()
+
 #		obj.map_listener()
 #		print(res)
 #		mapData().map_listener()
