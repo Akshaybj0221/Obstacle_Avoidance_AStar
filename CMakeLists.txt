@@ -152,11 +152,14 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
+<<<<<<< HEAD
 
 add_executable(readMap_Cpp src/readMapCpp.cpp)
 target_link_libraries(readMap_Cpp ${catkin_LIBRARIES})
 add_dependencies(readMap_Cpp astar_ttbot_gencpp)
 
+=======
+>>>>>>> a4739d82d2fc215e5df2219f26ab10e21f002f57
 #############
 ## Install ##
 #############
