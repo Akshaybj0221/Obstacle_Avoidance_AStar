@@ -108,15 +108,18 @@ def aStar(obstaclePoints):
     finalTableDict.update({x1:tableRow})
 
 
+
+
     x = finalTableDict[x1][0]
 
     iterations = 0
     value = 1
 #    while (len(openNodes) != 0):
     while (value):
-        print("inside a star")
+#        print("inside a star")
 
         iterations +=  1
+
         if iterations >= 100000:  #Stop the computation if more than 100,000 nodes are visited
             print("Cannot find solution in finite time")
             print("Nodes Visited (Closed): ", closedNodes)
@@ -126,13 +129,7 @@ def aStar(obstaclePoints):
             break
 
         if x == G :     #Stop the computation if result is found
-            print("SUCCESS")
-            print("Open Nodes: ", openNodes)
-            print(" ")
-            print("Nodes Visited (Closed): ", closedNodes)
-            print(" ")
-            print("Path Table: ", finalTableDict)
-            print(" ")
+            print("SUCCESSFULLY FOUND OPTIMAL PATH")
             value = 0            
             break
 
@@ -145,7 +142,6 @@ def aStar(obstaclePoints):
             break
 
         xDash = right(x)  #Now adding the result of moving right into the xDash
-#        print("xDash", xDash)
         if (xDash in obstaclePoints):   #Checking if unvisited
             appendInOpen(xDash, openNodes)
             previousNode = x
@@ -159,7 +155,6 @@ def aStar(obstaclePoints):
                     finalTableDict[xDash] = tableRow #for new path is less than previous one 
             else:                                    #else do not add it and let the old values be
                 finalTableDict.update({xDash:tableRow}) #Adding a new row in dictionary
-#            print(finalTableDict)
 
         xDash = left(x)       #Now adding the result of moving left into the xDash
         if (xDash in obstaclePoints):   #Checking if unvisited
@@ -272,7 +267,6 @@ def aStar(obstaclePoints):
             else:                                    #else do not add it and let the old values be
                 finalTableDict.update({xDash:tableRow}) #Adding a new row in dictionary
 
-#        print("iter", iterations, "\tLength of Open nodes: ", len(openNodes))
 
         closedNodes.append(x)
         openNodes.pop(0)

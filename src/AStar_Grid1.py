@@ -1,15 +1,11 @@
 # Import a library of functions called 'pygame'
 #!/usr/bin/env python3
-#import pygame
+
 from math import pi
 import numpy as np
 import readMap2
 from readMap2 import *
-#import sys
-#import AStar_Grid2
-#from AStar_Grid2 import *
  
-#print(sys.version)
 
 # Initialize the game engine
 pygame.init()
@@ -27,9 +23,6 @@ XCOLOR = (100, 100, 200)
 # Set the height and width of the screen
 screenX = 512
 screenY = 544 
-
-#x1 = (15, 15)
-#G = (120,15)
 
 size = [screenX, screenY]
 screen = pygame.display.set_mode(size)
@@ -63,28 +56,15 @@ while not done:
     # Clear the screen and set the screen background
     screen.fill(BLACK)
 
-#    print(finalMap)
-
-#    for i in finalMap:
-#        if (i[2] == 0): #0 = freespace
-#            pygame.draw.rect(screen, WHITE, [i[0], i[1] , pointW, pointH])
-
-
+    # Here obstaclePoints list contains all the free-space nodes.
     for i in obstaclePoints:
         pygame.draw.rect(screen, WHITE, [i[0], i[1] , pointW, pointH])
 
+    # Here n is a list of path coordinates deduced by AStar
     for i in n:
         pygame.draw.rect(screen, RED, [i[0], i[1] , pointW, pointH])
 
-
-#    for i in closedNodes:           
-#        pygame.draw.rect(screen, RED, [i[0], i[1], pointW, pointH])     
-
-#    for i in openNodes:
-#        pygame.draw.rect(screen, YELLOW, [i[0], i[1] , pointW, pointH])   
-
-
-
+    # x1 = Start node & G = Goal Node 
     pygame.draw.rect(screen, GREEN, [G[0], G[1] , 5, 5])
     pygame.draw.rect(screen, BLUE, [x1[0], x1[1] , 5, 5])
 
