@@ -1,0 +1,8 @@
+<launch>
+
+	<include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+	<arg name="world_file" default="$(find astar_ttbot)/worlds/rrlab.sdf"/>
+	</include>
+	<include file="$(find turtlebot_gazebo)/launch/gmapping_demo.launch"/>
+	
+</launch>
